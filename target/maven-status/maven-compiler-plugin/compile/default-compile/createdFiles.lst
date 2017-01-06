@@ -1,0 +1,4 @@
+com\mulesoft\training\FlightArray.class
+com\mulesoft\training\FlightSortTransformer.class
+com\mulesoft\training\FlightRequest.class
+com\mulesoft\training\Flight.class

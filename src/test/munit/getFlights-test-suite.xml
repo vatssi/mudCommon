@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration"/>
+    <spring:beans>
+        <spring:import resource="classpath:getFlights.xml"/>
+        <spring:import resource="classpath:global.xml"/>
+    </spring:beans>
+    <munit:test name="getFlights-test-suite-getAllAirlinesFlightsFlowTest" description="Test">
+        <set-variable variableName="destination" value="#['SFO']" doc:name="Variable"/>
+        <message-properties-transformer doc:name="Message Properties">
+            <add-message-property key="airline" value="all"/>
+        </message-properties-transformer>
+        <flow-ref name="getAllAirlinesFlightsFlow" doc:name="getAllAirlinesFlightsFlow"/>
+    </munit:test>
+    <munit:test name="getFlights-test-suite-getAmericanFlightsFlowTest" description="Test" ignore="true">
+        <set-variable variableName="destination" value="#['CLE']" doc:name="Variable"/>
+        <message-properties-transformer doc:name="Message Properties">
+            <add-message-property key="airline" value="american"/>
+        </message-properties-transformer>
+        <logger level="INFO" doc:name="Logger"/>
+        <flow-ref name="getAmericanFlightsFlow" doc:name="getAmericanFlightsFlow"/>
+    </munit:test>
+    <munit:test name="getFlights-test-suite-getDeltaFlightsFlowTest" description="Test" ignore="true">
+        <set-variable variableName="destination" value="#['PDX']" doc:name="Variable"/>
+        <message-properties-transformer doc:name="Message Properties">
+            <add-message-property key="airline" value="delta"/>
+        </message-properties-transformer>
+        <flow-ref name="getDeltaFlightsFlow" doc:name="getDeltaFlightsFlow"/>
+    </munit:test>
+    <munit:test name="getFlights-test-suite-getUnitedFlightsFlowTest" description="Test" ignore="true">
+        <set-variable variableName="destination" value="#['LAX']" doc:name="Variable"/>
+        <message-properties-transformer doc:name="Message Properties">
+            <add-message-property key="airline" value="united"/>
+        </message-properties-transformer>
+        <flow-ref name="getUnitedFlightsFlow" doc:name="getUnitedFlightsFlow"/>
+    </munit:test>
+</mule>
