@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<mule-project xmlns="http://www.mulesoft.com/tooling/project" runtimeId="org.mule.tooling.server.3.8.1.ee" schemaVersion="3.5.0.0">
-    <name>mudCommon</name>
+<mule-project xmlns="http://www.mulesoft.com/tooling/project" runtimeId="org.mule.tooling.server.3.9.1.ee" schemaVersion="5.3.0.0">
+    <name>ca-cwds-1</name>
     <description></description>
-    <muleExtension name="APIkit" qualifier="org.mule.tooling.apikit.3.7.0"/>
+    <muleExtension name="Mule Requester" qualifier="org.mule.tooling.ui.contribution.mulerequester.3.5.0"/>
+    <muleExtension name="Amazon S3" qualifier="org.mule.tooling.ui.contribution.s3.3.5.0"/>
+    <muleExtension name="Secure Property Placeholder" qualifier="org.mule.tooling.ui.contribution.secure-property-placeholder.3.6.0"/>
+    <muleExtension name="Salesforce" qualifier="org.mule.tooling.ui.contribution.sfdc.3.5.0"/>
+    <muleExtension name="Filters" qualifier="org.mule.tooling.ui.contribution.filters.3.6.0"/>
 </mule-project>
